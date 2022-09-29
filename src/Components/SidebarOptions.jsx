@@ -7,14 +7,12 @@ const SidebarOptions = ({icon , text , active}) => {
         display: flex;
         gap: 7px;
         font-weight: 500;
-        font-size: 20px;
+        font-size: 1rem;
         align-items: center;
-        // border-radius: 10px;
-        // border: 1px solid red;
 
         :hover {
             background: linear-gradient(90deg, rgba(122,158,239,1) 0%, rgba(187,75,164,1) 36%, rgba(244,149,251,1) 66%);
-            font-weight: 800;
+            font-weight: 700;
         }
 
         .sidebarmenu--active {
