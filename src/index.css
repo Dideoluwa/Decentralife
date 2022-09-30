@@ -8,7 +8,6 @@
 }
 
 .App {
-  /* border: 1px solid red; */
   height: 100vh;
   display:flex;
   background-color: var(--black);
@@ -22,4 +21,10 @@
   --black : #111111;
   --white: #FFFFFF;
   --gradient : linear-gradient(90deg, rgba(122,158,239,1) 0%, rgba(187,75,164,1) 36%, rgba(244,149,251,1) 66%);
+}
+
+
+.content {
+  width: 85%;
+  padding: 1rem;
 }
