@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import millify from "millify";
 import { Link } from "react-router-dom";
+import { useGetCryptoDataQuery } from "../Services/CryptoApi";
 
 const Home = () => {
 
