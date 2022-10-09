@@ -1,12 +1,15 @@
 import Sidebar from "./Components/Sidebar";
 import { BrowserRouter , Route , Routes } from "react-router-dom";
-import {Home , Cryptos, Exchanges, News, CryptoDetails} from "./Components/CompContainer"
+import {Home , Cryptos, Exchanges, News, CryptoDetails} from "./Components/CompContainer";
+import Navbar from "./Components/Navbar";
 
 function App() {
   console.log(Home);
   return (
       <BrowserRouter>   
         <div className="App">
+          <Navbar/>
+        <div className="main">
           <Sidebar/>
           <div className="content">
           <Routes>
@@ -17,6 +20,7 @@ function App() {
             <Route exact path="/news" element={<News/>}/>  
           </Routes>
           </div>
+        </div>
         </div>
       </BrowserRouter>
   );

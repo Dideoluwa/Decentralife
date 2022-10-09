@@ -11,6 +11,9 @@ const Home = () => {
    `;
 
    const GlobalStats = styled.div`
+
+   padding: 1rem;
+
         h1 {
             font-size: 1.5rem;
         }

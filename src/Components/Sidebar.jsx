@@ -32,8 +32,8 @@ const Sidebar = () => {
 
     return ( 
         <Container>
-            <Logo><img src={logo} alt="logo"/>DECENTRALIFE</Logo>
-            <Link to="/home"><SidebarOptions icon="bi bi-house" text="Home" active/></Link>
+            {/* <Logo><img src={logo} alt="logo"/>DECENTRALIFE</Logo> */}
+            <Link to="/"><SidebarOptions icon="bi bi-house" text="Home" active/></Link>
             <Link to="/crypto"><SidebarOptions icon="bi bi-coin" text="Cryptocurrencies"/></Link>
             <Link to="/exchanges"><SidebarOptions icon="bi bi-currency-exchange" text="Exchanges"/></Link>
             <Link to="/news"><SidebarOptions icon="bi bi-newspaper" text="News"/></Link>

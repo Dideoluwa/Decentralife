@@ -7,10 +7,16 @@
                                                 
 }
 
-.App {
-  height: 100vh;
+.main {
+  height: 95vh;
   display:flex;
   background-color: var(--black);
+}
+
+.App {
+  max-height: 100vh;
+  /* border: 1px solid red; */
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
