@@ -21,6 +21,7 @@ const Navbar = () => {
     display: flex;
     align-items: center;
     gap: 5px;
+    font-family: 'Satoshi', sans-serif;
 
     img {
         width: 30px;
