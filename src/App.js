@@ -4,7 +4,6 @@ import {Home , Cryptos, Exchanges, News, CryptoDetails} from "./Components/CompC
 import Navbar from "./Components/Navbar";
 
 function App() {
-  console.log(Home);
   return (
       <BrowserRouter>   
         <div className="App">

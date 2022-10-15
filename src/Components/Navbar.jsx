@@ -6,14 +6,15 @@ const Navbar = () => {
     const Container = styled.div`
     width: 100%;
     padding: 1.5rem;
-    // border: 1px solid red;
     max-height: 5vh;
-    // height: 5vh;
     background-color: var(--black);
+
+    @media screen and (max-width: 768px) {
+        padding: 1.2rem;
+    }
  `
 
     const Logo = styled.div`
-    //  padding: 2rem;
     text-align: center;
     font-weight: 700;
     font-size: 1rem;
@@ -26,6 +27,7 @@ const Navbar = () => {
     img {
         width: 30px;
     }
+
     `
     return ( 
         <Container>

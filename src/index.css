@@ -15,7 +15,6 @@
 
 .App {
   max-height: 100vh;
-  /* border: 1px solid red; */
   overflow: hidden;
 }
 
@@ -34,4 +33,10 @@
   width: 85%;
   height: 100vh ;
   overflow-y: scroll;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    width: 100%;
+}
 }

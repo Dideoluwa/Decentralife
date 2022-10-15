@@ -12,6 +12,11 @@ const Sidebar = () => {
             text-decoration: none;
             color: #FFFFFF;
         }
+    
+        @media screen and (max-width: 768px) {
+            display: none;
+            width: 20%;
+        }
     `
 
     return ( 
