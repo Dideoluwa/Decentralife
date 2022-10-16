@@ -2,7 +2,7 @@ import styled from "styled-components";
 import millify from "millify";
 import { Link } from "react-router-dom";
 import { useGetCryptoDataQuery } from "../Services/CryptoApi";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 const Cryptos = ({simplified}) => {
 
@@ -61,10 +61,23 @@ const Cryptos = ({simplified}) => {
     const count = simplified ? 10 : 100;
     const {data: cryptosList, isFetching} = useGetCryptoDataQuery(count);
     const [cryptos , setCryptos] = useState(cryptosList?.data?.coins);
+    const [searchItem , setSearchItem] = useState("");
+
+    useEffect(()=>{
+        const filteredData = cryptosList?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(searchItem));
+
+        setCryptos(filteredData);
+    }, [cryptosList, searchItem])
    
     if(isFetching) return <div>loading...</div>
-
     return ( 
+        <>
+        {!simplified && (
+            <div className="search">
+            <input type="text" placeholder="Search Cryptocurrency" onChange={(e) => setSearchItem(e.target.value)}/>
+            </div>
+        )}
+        
         <Container>
             {cryptos?.map((crypto) => (
                     <div key={crypto.id} className="currency">
@@ -83,6 +96,7 @@ const Cryptos = ({simplified}) => {
             )
             )}
         </Container>
+        </>
      );
 }
  
