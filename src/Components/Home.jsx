@@ -36,6 +36,10 @@ const Home = () => {
             li {
                 width: 25%;
                 padding: 5px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
 
                 h3 {
                     font-size: 15px;
@@ -47,10 +51,6 @@ const Home = () => {
 
         @media screen and (max-width: 768px) {
             li {
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
 
                 h3 {
                     font-size: 10px ;
