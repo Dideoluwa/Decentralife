@@ -2,10 +2,11 @@ import styled from "styled-components";
 import moment from "moment/moment";
 import Avatar from '@mui/material/Avatar';
 import {Select , Col} from "antd";
+import { useState } from "react";
 
 
 import { useGetCryptoNewsQuery } from "../Services/NewsApi";
-// import { useGetCryptoDataQuery } from "../Services/CryptoApi";
+import { useGetCryptoDataQuery } from "../Services/CryptoApi";
 const {Option} = Select;
 
 const defaultImage = "https://coinrevolution.com/wp-content/uploads/2020/06/cryptonews.jpg";
@@ -14,10 +15,9 @@ const News = ({simplified}) => {
 
     const Container = styled.div`
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
         gap: 1rem;
-        padding: 1rem;
-        /* border: 1px solid blue; */
 
         a {
             width: 29%;
@@ -27,15 +27,23 @@ const News = ({simplified}) => {
             padding: 1rem;
             display: flex;
             flex-direction: column;
-            /* height: 35vh;
-            min-height: 35vh; */
+        }
+
+        .optionField {
+            /* border: 1px solid red; */
+        }
+
+        .newsList {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
         }
     `
 
     const Card = styled.div`
         .news {
             display: flex;
-            /* border: 1px solid blue; */
             margin-bottom: .7rem;
             h1 {
                 font-size: 1rem;
@@ -53,7 +61,6 @@ const News = ({simplified}) => {
         }
 
         .provider { 
-            /* border: 1px solid red; */
             display: flex;
             align-items: center;
             margin-top: 1rem;
@@ -71,21 +78,31 @@ const News = ({simplified}) => {
         }
     `
 
-    const { data: cryptoNews } = useGetCryptoNewsQuery({newsCategory: "Cryptocurrency" , count: simplified ? 6 : 12});
-    console.log(cryptoNews);
+    const [newsCategory, setNewsCategory] = useState("Cryptocurrency")
+    const { data: cryptoNews } = useGetCryptoNewsQuery({newsCategory , count: simplified ? 6 : 12});
+    const {data} = useGetCryptoDataQuery(100);
     if (!cryptoNews?.value) return <div>Loading..</div>
 
     return ( 
         <Container>
             {!simplified && (
-                <div>
-                    <Select>
-                        <Option></Option>
-                    </Select>
+                <div className="optionField">
+                    <select
+                        showSearch
+                        className="selectNews"
+                        placeholder="Select a Crypto"
+                        optionFilterProp="children"
+                        onChange={(value)=> setNewsCategory(value)}
+                        filterOption={(input , option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                    >
+                        <option value="Cryptocurrency">Cryptocurrency</option>
+                        {data?.data?.coins.map((coin) => <option value={coin.name}>{coin.name}</option>)}
+                    </select>
                 </div>
             )}
+            <div className="newsList">
             {cryptoNews.value.map((news , i) => (
-                    <a href={news.url} target="_blank" rel="noreferrer">
+                    <a href={news.url} target="_blank" rel="noreferrer" key={news}>
                         <Card>
                             <div className="news">
                                 <h1>{news.name}</h1>
@@ -100,6 +117,7 @@ const News = ({simplified}) => {
                         </Card>
                     </a>    
             ))}
+            </div>
         </Container>
      );
 }
