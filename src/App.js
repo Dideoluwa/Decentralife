@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home/>}/>  
             <Route exact path="/cryptos" element={<Cryptos/>}/> 
-            <Route exact path="/crypto/:coinId" element={<CryptoDetails/>}/>   
+            <Route exact path="/cryptos/:coinId" element={<CryptoDetails/>}/>   
             <Route exact path="/exchanges" element={<Exchanges/>}/>  
             <Route exact path="/news" element={<News/>}/>  
           </Routes>

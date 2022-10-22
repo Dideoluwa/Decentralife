@@ -33,10 +33,7 @@ const Cryptos = ({simplified}) => {
             .currency {
                 width: 47%;
             }
-
         }
-
-    
     `
 
     const Currency = styled.div`
@@ -93,8 +90,7 @@ const Cryptos = ({simplified}) => {
                         </Currency>
                         </Link>
                     </div>
-            )
-            )}
+            ))}
         </Container>
         </>
      );

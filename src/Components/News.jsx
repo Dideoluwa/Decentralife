@@ -102,7 +102,7 @@ const News = ({simplified}) => {
             )}
             <div className="newsList">
             {cryptoNews.value.map((news , i) => (
-                    <a href={news.url} target="_blank" rel="noreferrer" key={news}>
+                    <a href={news.url} target="_blank" rel="noreferrer" key={news.id}>
                         <Card>
                             <div className="news">
                                 <h1>{news.name}</h1>
