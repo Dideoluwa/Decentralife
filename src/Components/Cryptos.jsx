@@ -3,6 +3,7 @@ import millify from "millify";
 import { Link } from "react-router-dom";
 import { useGetCryptoDataQuery } from "../Services/CryptoApi";
 import { useState , useEffect } from "react";
+import searchIcon from "../Assets/search.svg"
 
 const Cryptos = ({simplified}) => {
 
@@ -52,6 +53,14 @@ const Cryptos = ({simplified}) => {
             justify-content: space-between;
             margin-bottom: 1rem;
             font-weight: 700;
+
+            p {
+                font-size: 1.2rem;
+            }
+        }
+
+        p {
+            line-height: 1.7rem;
         }
     `
 
@@ -66,16 +75,20 @@ const Cryptos = ({simplified}) => {
         setCryptos(filteredData);
     }, [cryptosList, searchItem])
    
-    if(isFetching) return <div>loading...</div>
+    // if(isFetching) return <div>loading...</div>
     return ( 
         <>
         {!simplified && (
             <div className="search">
-            <input type="text" placeholder="Search Cryptocurrency" onChange={(e) => setSearchItem(e.target.value)}/>
+                <div>
+                    <img src={searchIcon} alt="" />
+                    <input type="text" placeholder="Search Cryptocurrency" onChange={(e) => setSearchItem(e.target.value)}/>
+                </div>
             </div>
         )}
         
         <Container>
+            {isFetching && <div>loading...</div>}
             {cryptos?.map((crypto) => (
                     <div key={crypto.id} className="currency">
                         <Link to={`/cryptos/${crypto.uuid}`} className="link">
@@ -84,8 +97,8 @@ const Cryptos = ({simplified}) => {
                                 <p>{`${crypto.rank}. ${crypto.name}`}</p>
                                 <img src={crypto.iconUrl} alt="coin logo" />
                             </div>
-                            <p>Price: {crypto.price}</p>
-                            <p>Market Cap: {millify(crypto.marketCap)}</p>
+                            <p>Price: ${crypto.price}</p>
+                            <p>Market Cap: ${millify(crypto.marketCap)}</p>
                             <p>Daily Change: {millify(crypto.change)}%</p>
                         </Currency>
                         </Link>

@@ -1,13 +1,18 @@
 import styled from "styled-components";
-import logo from "../Assets/flower.svg"
+import logo from "../Assets/flower.svg";
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
     const Container = styled.div`
     width: 100%;
-    padding: 1.5rem;
+    padding: 1rem;
     max-height: 5vh;
     background-color: var(--black);
+
+    a {
+        text-decoration: none;
+    }
 
     @media screen and (max-width: 768px) {
         padding: 1.2rem;
@@ -16,22 +21,23 @@ const Navbar = () => {
 
     const Logo = styled.div`
     text-align: center;
-    font-weight: 700;
-    font-size: 1rem;
+    font-weight: 800;
+    font-size: 1.2rem;
     color: var(--white);
     display: flex;
     align-items: center;
     gap: 5px;
     font-family: 'Satoshi', sans-serif;
+    width: 11rem;
 
     img {
-        width: 30px;
+        width: 40px;
     }
 
     `
     return ( 
         <Container>
-            <Logo><img src={logo} alt="logo"/>DECENTRALIFE</Logo>
+            <Link to="/"><Logo><img src={logo} alt="logo"/>DECENTRALIFE</Logo></Link>
         </Container>
      );
 }

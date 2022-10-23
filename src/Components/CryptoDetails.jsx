@@ -2,6 +2,7 @@ import millify from "millify";
 import { useParams } from "react-router-dom";
 import HTMLReactParser from "html-react-parser";
 import { useState } from "react";
+import styled from "styled-components";
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 
 import {useGetCryptoDetailsQuery} from "../Services/CryptoApi";
@@ -10,8 +11,16 @@ const CryptoDetails = () => {
     const {coinId} = useParams();
     const [timePeriod , setTimePeriod] = useState('7d');
     const {data , isFetching} = useGetCryptoDetailsQuery(coinId);
-    const cryptoDetails = data?.data?.coin
+    const cryptoDetails = data?.data?.coin;
 
+    const Container = styled.div`
+        color: white;
+    header {
+        text-align: center;
+    }
+    `
+
+    if (isFetching) return <div>fetching...</div>
 
     const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
@@ -32,7 +41,12 @@ const CryptoDetails = () => {
     ];
 
     return ( 
-        <div>deets{coinId}</div>
+        <Container>
+            <header>
+                <h1>{cryptoDetails.name} ({cryptoDetails.symbol}) Price</h1>
+                <p>{cryptoDetails.name} live price in US Dollar (USD). View value statistics, market cap and supply.</p>
+            </header>
+        </Container>
      );
 }
  

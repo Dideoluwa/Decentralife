@@ -98,7 +98,7 @@ const Home = () => {
                     </li>
                     <li>
                         <h3>Total Market Cap</h3>
-                        <p>{millify(globalStats.totalMarketCap)}</p>
+                        <p>${millify(globalStats.totalMarketCap)}</p>
                     </li>
                     <li>
                         <h3>Total Markets</h3>
@@ -110,7 +110,7 @@ const Home = () => {
                     </li>
                     <li>
                         <h3>Total 24h Volume</h3>
-                        <p>{millify(globalStats.total24hVolume)}</p>
+                        <p>${millify(globalStats.total24hVolume)}</p>
                     </li>
                 </ul>
             </GlobalStats>
