@@ -8,7 +8,7 @@ const Navbar = () => {
     width: 100%;
     padding: 1rem;
     max-height: 5vh;
-    background-color: var(--black);
+    background: #2d2d2d;
 
     a {
         text-decoration: none;
