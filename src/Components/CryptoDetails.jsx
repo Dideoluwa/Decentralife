@@ -3,9 +3,12 @@ import { useParams } from "react-router-dom";
 import HTMLReactParser from "html-react-parser";
 import { useState } from "react";
 import styled from "styled-components";
-import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
+// import { Select } from "antd";
+// import 'antd/dist/antd.css';
 
+import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import {useGetCryptoDetailsQuery} from "../Services/CryptoApi";
+// const {Option} = Select;
 
 const CryptoDetails = () => {
     const {coinId} = useParams();
@@ -15,10 +18,66 @@ const CryptoDetails = () => {
 
     const Container = styled.div`
         color: white;
-    header {
-        text-align: center;
-    }
-    `
+
+        header {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .period {
+            /* border: 1px solid red; */
+            padding: 1rem;
+        }
+
+        .timeframe {
+            /* border: 1px none; */
+            border: 2px solid rgba(187,75,164,1);
+            width: 35vh;
+            padding: 0.3rem;
+            outline: none;
+            color: white;
+            background: transparent;
+
+            option {
+            color: white;
+            background: #111111;
+            /* padding: 0.3rem !important; */
+            }
+        }
+    `;
+
+    const StatsContainer = styled.div`
+        padding: 1rem;
+
+        .coin_stats_heading {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .coin_stats_details {
+            width: 40%;
+            /* border: 1px solid red; */
+        }
+
+        .coin_stats {
+            border-bottom: .5px solid #CCC;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            justify-content: space-between;
+        }
+
+        .stats {
+            /* border: 1px solid yellow; */
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            .stats_value {
+                font-weight: 700;
+            }
+        }
+    `;
 
     if (isFetching) return <div>fetching...</div>
 
@@ -46,7 +105,31 @@ const CryptoDetails = () => {
                 <h1>{cryptoDetails.name} ({cryptoDetails.symbol}) Price</h1>
                 <p>{cryptoDetails.name} live price in US Dollar (USD). View value statistics, market cap and supply.</p>
             </header>
-        </Container>
+            <div className="period">
+                <select class="form-select timeframe">
+                {time.map((date) => <option key={date}>{date}</option>)}
+                </select>
+            </div>
+            <StatsContainer>
+                <div className="coin_value">
+                    <div className="coin_stats_heading">
+                        <h2>{cryptoDetails.name} Value Statistics</h2>
+                        <p>An overview showing the stats of {cryptoDetails.name}</p>
+                    </div>
+                    <div className="coin_stats_details"> 
+                        {stats.map(({icon , title, value}) => (
+                            <div className="coin_stats">
+                                <div className="stats">
+                                    <div>{icon}</div>
+                                    <p>{title}</p>
+                                </div>
+                                <p className="stats_value">{value}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </StatsContainer>
+        </Container>   
      );
 }
  

@@ -3,6 +3,7 @@ import { BrowserRouter , Route , Routes } from "react-router-dom";
 import {Home , Cryptos, Exchanges, News, CryptoDetails} from "./Components/CompContainer";
 import Navbar from "./Components/Navbar";
 
+
 function App() {
   return (
       <BrowserRouter>   
