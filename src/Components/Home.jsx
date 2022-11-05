@@ -10,7 +10,6 @@ const Home = () => {
    const Container = styled.div`
         color: var(--white);
         min-height: 100vh;
-        /* border: 1px solid red; */
 
         @media screen and (max-width: 768px) {
             

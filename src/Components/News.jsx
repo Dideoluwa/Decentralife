@@ -30,7 +30,6 @@ const News = ({simplified}) => {
         }
 
         .optionField {
-            /* border: 1px solid red; */
         }
 
         .newsList {

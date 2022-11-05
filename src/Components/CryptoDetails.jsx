@@ -3,12 +3,9 @@ import { useParams } from "react-router-dom";
 import HTMLReactParser from "html-react-parser";
 import { useState } from "react";
 import styled from "styled-components";
-// import { Select } from "antd";
-// import 'antd/dist/antd.css';
 
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import {useGetCryptoDetailsQuery} from "../Services/CryptoApi";
-// const {Option} = Select;
 
 const CryptoDetails = () => {
     const {coinId} = useParams();
@@ -25,12 +22,10 @@ const CryptoDetails = () => {
         }
 
         .period {
-            /* border: 1px solid red; */
             padding: 1rem;
         }
 
         .timeframe {
-            /* border: 1px none; */
             border: 2px solid rgba(187,75,164,1);
             width: 35vh;
             padding: 0.3rem;
@@ -41,7 +36,6 @@ const CryptoDetails = () => {
             option {
             color: white;
             background: #111111;
-            /* padding: 0.3rem !important; */
             }
         }
     `;
@@ -56,7 +50,6 @@ const CryptoDetails = () => {
 
         .coin_stats_details {
             width: 40%;
-            /* border: 1px solid red; */
         }
 
         .coin_stats {
@@ -68,7 +61,6 @@ const CryptoDetails = () => {
         }
 
         .stats {
-            /* border: 1px solid yellow; */
             display: flex;
             align-items: center;
             gap: 5px;

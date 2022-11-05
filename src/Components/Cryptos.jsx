@@ -75,7 +75,6 @@ const Cryptos = ({simplified}) => {
         setCryptos(filteredData);
     }, [cryptosList, searchItem])
    
-    // if(isFetching) return <div>loading...</div>
     return ( 
         <>
         {!simplified && (

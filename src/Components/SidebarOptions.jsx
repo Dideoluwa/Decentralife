@@ -11,8 +11,7 @@ const SidebarOptions = ({icon , text , active}) => {
         align-items: center;
 
         :hover {
-            /* background: linear-gradient(272.66deg, #7A9EEF 13.8%, #F495FB 112.02%); */
-            font-weight: 700;
+            font-weight: 600;
             border-right: 5px solid #7A9EEF;
         }
 
