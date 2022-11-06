@@ -12,6 +12,7 @@ const CryptoDetails = () => {
     const [timePeriod , setTimePeriod] = useState('7d');
     const {data , isFetching} = useGetCryptoDetailsQuery(coinId);
     const cryptoDetails = data?.data?.coin;
+    console.log(cryptoDetails);
 
     const Container = styled.div`
         color: white;
@@ -42,14 +43,20 @@ const CryptoDetails = () => {
 
     const StatsContainer = styled.div`
         padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        .coin_value {
+            width: 45%;
+        }
 
         .coin_stats_heading {
-            text-align: center;
+            /* text-align: center; */
             margin-bottom: 2rem;
         }
 
         .coin_stats_details {
-            width: 40%;
+            /* width: 40%; */
         }
 
         .coin_stats {
@@ -66,10 +73,49 @@ const CryptoDetails = () => {
             gap: 5px;
 
             .stats_value {
-                font-weight: 700;
+                font-weight: 800;
             }
         }
     `;
+
+    const AboutCountainer = styled.div`
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        .description{
+            width: 55%;
+            p {
+                margin-top: 10px;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .links {
+            width: 35%;
+
+            ul {
+                list-style: none;
+                margin-top: 1rem;
+            }
+
+            li {
+                display: flex;
+                padding: 1rem;
+                justify-content: space-between;
+                border-bottom: 1px solid ;
+
+                p {
+                    text-transform: uppercase ;
+                }
+
+                a {
+                    color: rgba(187,75,164,1);
+                    text-decoration: none;
+                }
+            }
+        }
+    `
 
     if (isFetching) return <div>fetching...</div>
 
@@ -78,7 +124,7 @@ const CryptoDetails = () => {
     const stats = [
       { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleOutlined/> },
       { title: 'Rank', value: cryptoDetails?.rank, icon: <NumberOutlined/> },
-      { title: '24h Volume', value: `$ ${cryptoDetails?.volume && millify(cryptoDetails?.volume)}`, icon: <ThunderboltOutlined/> },
+      { title: '24h Volume', value: `$ ${cryptoDetails?.total24hVolume && millify(cryptoDetails?.total24hVolume)}`, icon: <ThunderboltOutlined/> },
       { title: 'Market Cap', value: `$ ${cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)}`, icon: <DollarCircleOutlined/> },
       { title: 'All-time-high(daily avg.)', value: `$ ${cryptoDetails?.allTimeHigh?.price && millify(cryptoDetails?.allTimeHigh?.price)}`, icon: <TrophyOutlined/> }
     ];
@@ -86,7 +132,7 @@ const CryptoDetails = () => {
     const genericStats = [
       { title: 'Number Of Markets', value: cryptoDetails?.numberOfMarkets, icon: <FundOutlined/> },
       { title: 'Number Of Exchanges', value: cryptoDetails?.numberOfExchanges, icon: <MoneyCollectOutlined /> },
-      { title: 'Aprroved Supply', value: cryptoDetails?.supply?.confirmed ? <CheckOutlined/> : <StopOutlined/>, icon: <ExclamationCircleOutlined/> },
+      { title: 'Aproved Supply', value: cryptoDetails?.supply?.confirmed ? <CheckOutlined/> : <StopOutlined/>, icon: <ExclamationCircleOutlined/> },
       { title: 'Total Supply', value: `$ ${cryptoDetails?.supply?.total && millify(cryptoDetails?.supply?.total)}`, icon: <ExclamationCircleOutlined/> },
       { title: 'Circulating Supply', value: `$ ${cryptoDetails?.supply?.circulating && millify(cryptoDetails?.supply?.circulating)}`, icon: <ExclamationCircleOutlined/> }
     ];
@@ -120,7 +166,43 @@ const CryptoDetails = () => {
                         ))}
                     </div>
                 </div>
+                <div className="coin_value">
+                    <div className="coin_stats_heading">
+                        <h2>Other Statistics</h2>
+                        <p>An overview of other stats</p>
+                    </div>
+                    <div className="coin_stats_details"> 
+                        {genericStats.map(({icon , title, value}) => (
+                            <div className="coin_stats">
+                                <div className="stats">
+                                    <div>{icon}</div>
+                                    <p>{title}</p>
+                                </div>
+                                <p className="stats_value">{value}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </StatsContainer>
+            <AboutCountainer>
+                <div className="description">
+                    <h3>What is {cryptoDetails.name}?</h3>
+                    {HTMLReactParser(cryptoDetails.description)}
+                </div>
+                <div className="links">
+                    <h2>{cryptoDetails.name} Links</h2>
+                    <ul>
+                    {cryptoDetails.links.map((link) => (
+                        <li>
+                            <p>{link.type}</p>
+                            <a href={link.url}>
+                                {link.name}
+                            </a>
+                        </li>
+                    ))}
+                    </ul>
+                </div>
+            </AboutCountainer>
         </Container>   
      );
 }
