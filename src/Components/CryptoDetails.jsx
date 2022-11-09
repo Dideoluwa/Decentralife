@@ -144,7 +144,7 @@ const CryptoDetails = () => {
                 <p>{cryptoDetails.name} live price in US Dollar (USD). View value statistics, market cap and supply.</p>
             </header>
             <div className="period">
-                <select class="form-select timeframe">
+                <select className="form-select timeframe">
                 {time.map((date) => <option key={date}>{date}</option>)}
                 </select>
             </div>

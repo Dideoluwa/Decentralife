@@ -86,7 +86,7 @@ const News = ({simplified}) => {
         <Container>
             {!simplified && (
                 <div className="optionField">
-                    <select
+                    <Select
                         showSearch
                         className="selectNews"
                         placeholder="Select a Crypto"
@@ -94,9 +94,13 @@ const News = ({simplified}) => {
                         onChange={(value)=> setNewsCategory(value)}
                         filterOption={(input , option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                     >
-                        <option value="Cryptocurrency">Cryptocurrency</option>
+                        <Option value="Cryptocurrency">Cryptocurrency</Option>
                         {data?.data?.coins.map((coin) => <option value={coin.name}>{coin.name}</option>)}
-                    </select>
+                    </Select>
+                {/* <select className="form-select timeframe"
+                        onChange={(value)=> setNewsCategory(value)}>
+                {data?.data?.coins.map((coin) => <option value={coin.name} key={coin.name}>{coin.name}</option>)}
+                </select> */}
                 </div>
             )}
             <div className="newsList">
