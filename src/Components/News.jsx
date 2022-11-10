@@ -98,7 +98,9 @@ const News = ({simplified}) => {
                         {data?.data?.coins.map((coin) => <option value={coin.name}>{coin.name}</option>)}
                     </Select>
                 {/* <select className="form-select timeframe"
-                        onChange={(value)=> setNewsCategory(value)}>
+                        optionFilterProp="children"
+                        onChange={(value)=> setNewsCategory(value)}
+                        filterOption={(input , option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
                 {data?.data?.coins.map((coin) => <option value={coin.name} key={coin.name}>{coin.name}</option>)}
                 </select> */}
                 </div>

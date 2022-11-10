@@ -3,14 +3,16 @@ import { useParams } from "react-router-dom";
 import HTMLReactParser from "html-react-parser";
 import { useState } from "react";
 import styled from "styled-components";
+import PriceChart from "./PriceChart";
 
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
-import {useGetCryptoDetailsQuery} from "../Services/CryptoApi";
+import {useGetCryptoDetailsQuery , useGetCryptoHistoryQuery} from "../Services/CryptoApi";
 
 const CryptoDetails = () => {
     const {coinId} = useParams();
     const [timePeriod , setTimePeriod] = useState('7d');
     const {data , isFetching} = useGetCryptoDetailsQuery(coinId);
+    const {data : coinHistory} = useGetCryptoHistoryQuery({coinId , timePeriod});
     const cryptoDetails = data?.data?.coin;
     console.log(cryptoDetails);
 
@@ -24,6 +26,10 @@ const CryptoDetails = () => {
 
         .period {
             padding: 1rem;
+
+            select {
+                margin-bottom: 2rem;
+            }
         }
 
         .timeframe {
@@ -147,6 +153,7 @@ const CryptoDetails = () => {
                 <select className="form-select timeframe">
                 {time.map((date) => <option key={date}>{date}</option>)}
                 </select>
+                <PriceChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name}/>
             </div>
             <StatsContainer>
                 <div className="coin_value">
