@@ -8,13 +8,16 @@ import PriceChart from "./PriceChart";
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import {useGetCryptoDetailsQuery , useGetCryptoHistoryQuery} from "../Services/CryptoApi";
 
+import { Select } from "antd";
+const { Option } = Select;
+
 const CryptoDetails = () => {
     const {coinId} = useParams();
     const [timePeriod , setTimePeriod] = useState('7d');
-    const {data , isFetching} = useGetCryptoDetailsQuery(coinId);
+    const {data, isFetching} = useGetCryptoDetailsQuery(coinId);
     const {data : coinHistory} = useGetCryptoHistoryQuery({coinId , timePeriod});
     const cryptoDetails = data?.data?.coin;
-    console.log(cryptoDetails);
+    // console.log(cryptoDetails);
 
     const Container = styled.div`
         color: white;
@@ -150,10 +153,13 @@ const CryptoDetails = () => {
                 <p>{cryptoDetails.name} live price in US Dollar (USD). View value statistics, market cap and supply.</p>
             </header>
             <div className="period">
-                <select className="form-select timeframe">
+                {/* <select className="form-select timeframe" onChange={(value) => setTimePeriod(value)}>
                 {time.map((date) => <option key={date}>{date}</option>)}
-                </select>
-                <PriceChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name}/>
+                </select> */}
+                {/* <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimePeriod(value)}>
+        {time.map((date) => <Option key={date}>{date}</Option>)}
+      </Select> */}
+                {/* <PriceChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name}/> */}
             </div>
             <StatsContainer>
                 <div className="coin_value">
