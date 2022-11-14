@@ -42,6 +42,7 @@ const Cryptos = ({simplified}) => {
         padding: 1rem;
         border-radius: 10px;
         background: linear-gradient(273.78deg, #7A9EEF 8.84%, #1AC9EF 47.63%, #00F4F4 102.85%);
+        background: rgba(187,75,164,1);
 
         img {
             height: 30px;
