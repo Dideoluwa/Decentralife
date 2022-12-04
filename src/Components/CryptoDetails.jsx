@@ -161,6 +161,25 @@ const CryptoDetails = () => {
       </Select> */}
                 {/* <PriceChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name}/> */}
             </div>
+            <AboutCountainer>
+                <div className="description">
+                    <h3>What is {cryptoDetails.name}?</h3>
+                    {HTMLReactParser(cryptoDetails.description)}
+                </div>
+                <div className="links">
+                    <h2>{cryptoDetails.name} Links</h2>
+                    <ul>
+                    {cryptoDetails.links.map((link) => (
+                        <li>
+                            <p>{link.type}</p>
+                            <a href={link.url}>
+                                {link.name}
+                            </a>
+                        </li>
+                    ))}
+                    </ul>
+                </div>
+            </AboutCountainer>
             <StatsContainer>
                 <div className="coin_value">
                     <div className="coin_stats_heading">
@@ -197,25 +216,7 @@ const CryptoDetails = () => {
                     </div>
                 </div>
             </StatsContainer>
-            <AboutCountainer>
-                <div className="description">
-                    <h3>What is {cryptoDetails.name}?</h3>
-                    {HTMLReactParser(cryptoDetails.description)}
-                </div>
-                <div className="links">
-                    <h2>{cryptoDetails.name} Links</h2>
-                    <ul>
-                    {cryptoDetails.links.map((link) => (
-                        <li>
-                            <p>{link.type}</p>
-                            <a href={link.url}>
-                                {link.name}
-                            </a>
-                        </li>
-                    ))}
-                    </ul>
-                </div>
-            </AboutCountainer>
+     
         </Container>   
      );
 }

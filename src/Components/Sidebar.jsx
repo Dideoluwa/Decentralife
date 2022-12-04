@@ -23,7 +23,7 @@ const Sidebar = () => {
         <Container>
             <Link to="/"><SidebarOptions icon="bi bi-house" text="Home" active/></Link>
             <Link to="/cryptos"><SidebarOptions icon="bi bi-coin" text="Cryptocurrencies"/></Link>
-            <Link to="/exchanges"><SidebarOptions icon="bi bi-currency-exchange" text="Exchanges"/></Link>
+            {/* <Link to="/exchanges"><SidebarOptions icon="bi bi-currency-exchange" text="Exchanges"/></Link> */}
             <Link to="/news"><SidebarOptions icon="bi bi-newspaper" text="News"/></Link>
         </Container>
      );

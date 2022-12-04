@@ -40,9 +40,15 @@ const Cryptos = ({simplified}) => {
     const Currency = styled.div`
         text-decoration: none;
         padding: 1rem;
-        border-radius: 10px;
+        /* border-radius: 10px; */
         background: linear-gradient(273.78deg, #7A9EEF 8.84%, #1AC9EF 47.63%, #00F4F4 102.85%);
         background: rgba(187,75,164,1);
+        background: rgba(50, 50, 51, 0.59);
+/* border-radius: 16px; */
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.8px);
+-webkit-backdrop-filter: blur(3.8px);
+border: 1px solid rgba(50, 50, 51, 0.3);
 
         img {
             height: 30px;
