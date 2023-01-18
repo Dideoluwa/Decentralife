@@ -3,7 +3,8 @@ import millify from "millify";
 import { Link } from "react-router-dom";
 import { useGetCryptoDataQuery } from "../Services/CryptoApi";
 import { useState , useEffect } from "react";
-import searchIcon from "../Assets/search.svg"
+import searchIcon from "../Assets/search.svg";
+import Marqueee from "./Marquee";
 
 const Cryptos = ({simplified}) => {
 
@@ -44,11 +45,11 @@ const Cryptos = ({simplified}) => {
         background: linear-gradient(273.78deg, #7A9EEF 8.84%, #1AC9EF 47.63%, #00F4F4 102.85%);
         background: rgba(187,75,164,1);
         background: rgba(50, 50, 51, 0.59);
-/* border-radius: 16px; */
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(3.8px);
--webkit-backdrop-filter: blur(3.8px);
-border: 1px solid rgba(50, 50, 51, 0.3);
+        /* border-radius: 16px; */
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(3.8px);
+        -webkit-backdrop-filter: blur(3.8px);
+        border: 1px solid rgba(50, 50, 51, 0.3);
 
         img {
             height: 30px;
@@ -60,6 +61,7 @@ border: 1px solid rgba(50, 50, 51, 0.3);
             justify-content: space-between;
             margin-bottom: 1rem;
             font-weight: 700;
+            color: #38F2AF;
 
             p {
                 font-size: 1.2rem;
@@ -85,6 +87,10 @@ border: 1px solid rgba(50, 50, 51, 0.3);
     return ( 
         <>
         {!simplified && (
+            <Marqueee/>
+        )}
+        
+        {!simplified && (
             <div className="search">
                 <div>
                     <img src={searchIcon} alt="" />
@@ -103,7 +109,7 @@ border: 1px solid rgba(50, 50, 51, 0.3);
                                 <p>{`${crypto.rank}. ${crypto.name}`}</p>
                                 <img src={crypto.iconUrl} alt="coin logo" />
                             </div>
-                            <p>Price: ${crypto.price}</p>
+                            <p>Live Price: ${crypto.price}</p>
                             <p>Market Cap: ${millify(crypto.marketCap)}</p>
                             <p>Daily Change: {millify(crypto.change)}%</p>
                         </Currency>

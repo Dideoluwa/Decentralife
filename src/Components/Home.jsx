@@ -4,12 +4,16 @@ import { Link } from "react-router-dom";
 import { useGetCryptoDataQuery } from "../Services/CryptoApi";
 import Cryptos from "./Cryptos";
 import News from "./News";
+import Marqueee from "./Marquee";
 
 const Home = () => {
 
    const Container = styled.div`
         color: var(--white);
         min-height: 100vh;
+        /* border: 1px solid red; */
+        position: relative;
+        /* padding-top: 2rem; */
 
         @media screen and (max-width: 768px) {
             
@@ -64,6 +68,7 @@ const Home = () => {
 
    const StatsContainer = styled.div`
    padding: 1rem;
+   padding-top: 5rem;
         h1 {
             font-size: 1.5rem;
             }
@@ -76,43 +81,19 @@ const Home = () => {
             a{
                 margin-left: auto;
                 text-decoration: none;
-                color: rgba(187,75,164,1);
+                color: #38F2AF;
             }
         }
    `
 
    const {data , isFetching} = useGetCryptoDataQuery(10);
-   const globalStats = data?.data?.stats;
+//    const globalStats = data?.data?.stats;
 
    if(isFetching) return <div className="loading">"Loading..."</div>
 
     return ( 
         <Container>
-            <GlobalStats>
-                <h1>Global Crypto Stats</h1>
-                <ul>
-                    <li>
-                        <h3>Total Cryptocurrencies</h3>
-                        <p>{globalStats.total}</p>
-                    </li>
-                    <li>
-                        <h3>Total Market Cap</h3>
-                        <p>${millify(globalStats.totalMarketCap)}</p>
-                    </li>
-                    <li>
-                        <h3>Total Markets</h3>
-                        <p>{millify(globalStats.totalMarkets)}</p>
-                    </li>
-                    <li>
-                        <h3>Total Exchanges</h3>
-                        <p>{globalStats.totalExchanges}</p>
-                    </li>
-                    <li>
-                        <h3>Total 24h Volume</h3>
-                        <p>${millify(globalStats.total24hVolume)}</p>
-                    </li>
-                </ul>
-            </GlobalStats>
+            <Marqueee/>
             <StatsContainer>
                 <div className="top">
                     <h1>Top 10 Cryptocurrencies in the world</h1>

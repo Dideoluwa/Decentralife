@@ -3,6 +3,7 @@ import moment from "moment/moment";
 import Avatar from '@mui/material/Avatar';
 import {Select , Col} from "antd";
 import { useState } from "react";
+import Marqueee from "./Marquee";
 
 
 import { useGetCryptoNewsQuery } from "../Services/NewsApi";
@@ -30,6 +31,7 @@ const News = ({simplified}) => {
         }
 
         .optionField {
+            margin-top: 4rem;
         }
 
         .newsList {
@@ -84,6 +86,8 @@ const News = ({simplified}) => {
 
     return ( 
         <Container>
+            {!simplified && (
+            <Marqueee/> )}
             {!simplified && (
                 <div className="optionField">
                     <Select

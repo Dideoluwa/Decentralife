@@ -12,7 +12,7 @@ const SidebarOptions = ({icon , text , active}) => {
 
         :hover {
             font-weight: 600;
-            border-right: 5px solid #7A9EEF;
+            border-right: 3px solid #38F2AF;
         }
 
         .sidebarmenu--active {
