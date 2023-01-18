@@ -5,7 +5,7 @@ const SidebarOptions = ({icon , text , active}) => {
     const Container = styled.div`
         padding: 1.5rem;
         display: flex;
-        gap: 7px;
+        gap: .5rem;
         font-weight: 500;
         font-size: 1rem;
         align-items: center;

@@ -5,13 +5,15 @@ import Marqueee from "./Marquee";
 
 
 const Navbar = () => {
-    const Container = styled.div`
+    const Container = styled.nav`
     width: 100%;
-    padding: 1.3rem;
+    /* padding: 1.3rem; */
+    /* padding-right: 1.3rem; */
     /* max-height: 5vh; */
     background: #25272E;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #373943;
     /* border: 1px solid red; */
 
     a {
@@ -20,6 +22,7 @@ const Navbar = () => {
 
     button {
         // margin-left: auto;
+
     }
 
     @media screen and (max-width: 768px) {
@@ -36,7 +39,8 @@ const Navbar = () => {
     align-items: center;
     gap: 5px;
     font-family: 'Oswald', sans-serif;
-    width: 11rem;
+    /* width: 11rem; */
+    border: 1px solid red;
 
     img {
         width: 1.5rem;
@@ -47,9 +51,10 @@ const Navbar = () => {
         <>
             <Container>
                 <Link to="/"><Logo><img src={logo} alt="logo"/>DECENTRALIFE</Logo></Link>
-                {/* <button>connect</button> */}
+                <div>
+                    <button>connect</button>
+                </div>
             </Container>
-            {/* <Marqueee/> */}
         </>
      );
 }

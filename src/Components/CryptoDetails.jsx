@@ -24,7 +24,15 @@ const CryptoDetails = () => {
 
         header {
             text-align: center;
-            padding: 1.5rem;
+            padding: 1rem;
+
+            h1 {
+                color: #38F2AF;
+            }
+
+            p {
+                /* color: #38F2AF; */
+            }
         }
 
         .period {
@@ -88,15 +96,20 @@ const CryptoDetails = () => {
     `;
 
     const AboutCountainer = styled.div`
-        padding: 1rem;
-        display: flex;
-        justify-content: space-between;
+        padding: 0 1rem;
+        /* display: flex; */
+        /* justify-content: space-between; */
+        /* border: 1px solid red; */
 
         .description{
-            width: 55%;
+            width: 100%;
             p {
                 margin-top: 10px;
                 margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
             }
         }
 
@@ -119,8 +132,9 @@ const CryptoDetails = () => {
                 }
 
                 a {
-                    color: rgba(187,75,164,1);
+                    color: #38F2AF;
                     text-decoration: none;
+                    text-transform: lowercase;
                 }
             }
         }
@@ -166,6 +180,7 @@ const CryptoDetails = () => {
                     <h3>What is {cryptoDetails.name}?</h3>
                     {HTMLReactParser(cryptoDetails.description)}
                 </div>
+
                 <div className="links">
                     <h2>{cryptoDetails.name} Links</h2>
                     <ul>

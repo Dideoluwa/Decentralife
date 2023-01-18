@@ -21,13 +21,16 @@ const News = ({simplified}) => {
         gap: 1rem;
 
         a {
-            width: 29%;
+            width: 29.7%;
+            max-width: 30%;
             text-decoration: none;
             color: white;
             background: #2d2d2d;
             padding: 1rem;
             display: flex;
             flex-direction: column;
+            border-radius: 5px;
+            background: #272A34;
         }
 
         .optionField {
@@ -39,32 +42,47 @@ const News = ({simplified}) => {
             flex-wrap: wrap;
             gap: 1rem;
             padding: 1rem;
+            background: #373943;
+            border-radius: 10px;
+            margin: 1rem;
         }
     `
 
     const Card = styled.div`
+        /* border: 1px solid blue; */
         .news {
             display: flex;
+            gap: .2rem;
+            /* border: 1px solid red; */
             margin-bottom: .7rem;
             h1 {
-                font-size: 1rem;
+                font-size: 1.1rem;
+                font-family: 'Inter', sans-serif;
+                /* border: 1px solid blue; */
+                /* color: #38F2AF; */
             }
             img {
                 height: 100px;
                 width: 100px;
-                max-width: 100px;
-                max-height: 100px;
+                /* max-width: 100px;
+                max-height: 100px; */
+                border-radius: 10px;
             }
         }
 
-        p {
+       > p {
             font-size: .8rem;
+            font-family: 'Inter', sans-serif;
+            /* border: 1px solid red; */
+            height: 4rem;
+            text-overflow: hidden;
         }
 
         .provider { 
             display: flex;
             align-items: center;
             margin-top: 1rem;
+            color: #38F2AF;
         }
 
         .avatar {
@@ -76,6 +94,8 @@ const News = ({simplified}) => {
         .datePublished {
             margin-left: auto;
             font-weight: 700;
+            color: white;
+            color: #828282;
         }
     `
 
@@ -119,9 +139,9 @@ const News = ({simplified}) => {
                             </div>
                             <p>{news.description > 100 ? `${news.description.substring(0 , 100)}...` : news.description}</p>
                             <div className="provider">
-                            <Avatar src={news.provider[0]?.image?.thumbnail?.contentUrl} className="avatar"/>
-                            <p>{news.provider[0]?.name}</p>
-                            <p className="datePublished">{moment(news.datePublished).startOf("ss").fromNow()}</p>
+                                <Avatar src={news.provider[0]?.image?.thumbnail?.contentUrl} className="avatar"/>
+                                <p>{news.provider[0]?.name}</p>
+                                <p className="datePublished">{moment(news.datePublished).startOf("ss").fromNow()}</p>
                             </div>
                         </Card>
                     </a>    

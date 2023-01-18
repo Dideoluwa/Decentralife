@@ -6,12 +6,12 @@ import Marquee from "react-fast-marquee";
 const Section = styled.ul`
     padding: 10px;
     display: flex;
-    background: #2b2e37;
+    background: #202328;
     /* gap: 2.5rem; */
     font-size: 1rem;
     list-style: none;
     position: fixed;
-    margin-top: -2px;
+    margin-top: -.5px;
     z-index: 10;
     /* border: 1px solid blue; */
 
@@ -25,11 +25,11 @@ const Section = styled.ul`
         margin-right: 2rem;
         
         h3 {
-            color: #38F2AF;
+            color: white;
         }
 
         span {
-            color: white;
+            color: #38F2AF;
         }
     }
 `

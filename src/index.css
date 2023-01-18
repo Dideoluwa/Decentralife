@@ -13,7 +13,7 @@
 .main {
   height: 95vh;
   display:flex;
-  background-color: var(--black);
+  background-color: #2B2C33;
 }
 
 .App {
@@ -28,7 +28,6 @@
 :root {
   --black : #111111;
   --white: #FFFFFF;
-  --gradient : linear-gradient(90deg, rgba(122,158,239,1) 0%, rgba(187,75,164,1) 36%, rgba(244,149,251,1) 66%);
 }
 
 
@@ -47,19 +46,20 @@
 .search {
   padding: 1rem;
   /* border: 1px solid red; */
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .search div {
-  border: 2px solid rgba(187,75,164,1);
-  border-radius: 30px;
-  width: 25vw;
+  /* border: 2px solid rgba(187,75,164,1); */
+  border-radius: 10px;
+  width: 20vw;
   display: flex;
-  padding: 7px 10px;
+  background: #373943;
+  padding: 10px 12px;
 }
 
 .search img {
-  margin-right: 10px;
+  margin-right: 7px;
 }
 
 .search input {

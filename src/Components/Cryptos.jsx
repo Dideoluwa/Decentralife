@@ -13,6 +13,10 @@ const Cryptos = ({simplified}) => {
         flex-wrap: wrap;
         gap: 1rem;
         padding: 1rem;
+        margin: 1rem;
+        background: #373943;
+        border-radius: 10px;
+        /* border: 1px solid red; */
 
         .link {
             text-decoration: none;
@@ -26,7 +30,7 @@ const Cryptos = ({simplified}) => {
         }
 
         .currency:hover{
-            transform: scale(1.05);
+            transform: scale(1.01);
         }
 
         @media screen and (max-width: 768px) {
@@ -42,10 +46,10 @@ const Cryptos = ({simplified}) => {
         text-decoration: none;
         padding: 1rem;
         /* border-radius: 10px; */
-        background: linear-gradient(273.78deg, #7A9EEF 8.84%, #1AC9EF 47.63%, #00F4F4 102.85%);
-        background: rgba(187,75,164,1);
-        background: rgba(50, 50, 51, 0.59);
-        /* border-radius: 16px; */
+        /* background: linear-gradient(273.78deg, #7A9EEF 8.84%, #1AC9EF 47.63%, #00F4F4 102.85%);
+        background: rgba(187,75,164,1); */
+        background: #272A34;
+        border-radius: 5px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(3.8px);
         -webkit-backdrop-filter: blur(3.8px);
@@ -61,15 +65,17 @@ const Cryptos = ({simplified}) => {
             justify-content: space-between;
             margin-bottom: 1rem;
             font-weight: 700;
-            color: #38F2AF;
+            /* color: #38F2AF; */
 
             p {
                 font-size: 1.2rem;
+                color: #38F2AF;
             }
         }
 
         p {
             line-height: 1.7rem;
+            color: #828282;
         }
     `
 

@@ -7,6 +7,7 @@ const Sidebar = () => {
     const Container = styled.div`
         width: 14%;  
         background: #25272E;
+        border-right: 1px solid #373943;
         
         a {
             text-decoration: none;
@@ -22,10 +23,10 @@ const Sidebar = () => {
     return ( 
         <Container>
             <Link to="/"><SidebarOptions icon="bi bi-house" text="Home" active/></Link>
-            <Link to="/"><SidebarOptions icon="bi bi-house" text="Send" active/></Link>
+            <Link to="/"><SidebarOptions icon="bi bi-send" text="Send" active/></Link>
             <Link to="/cryptos"><SidebarOptions icon="bi bi-coin" text="Crypto Stats"/></Link>
             <Link to="/news"><SidebarOptions icon="bi bi-newspaper" text="News"/></Link>
-            <Link to="/"><SidebarOptions icon="bi bi-house" text="FAQ" active/></Link>
+            <Link to="/"><SidebarOptions icon="bi bi-patch-question" text="FAQ" active/></Link>
         </Container>
      );
 }

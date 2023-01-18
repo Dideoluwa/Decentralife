@@ -96,7 +96,7 @@ const Home = () => {
             <Marqueee/>
             <StatsContainer>
                 <div className="top">
-                    <h1>Top 10 Cryptocurrencies in the world</h1>
+                    <h1>Top 10 Cryptocurrencies</h1>
                     <Link to="/cryptos">Show more</Link>
                 </div>
                 <Cryptos simplified/>
