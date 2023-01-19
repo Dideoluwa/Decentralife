@@ -7,11 +7,12 @@ import Marqueee from "./Marquee";
 const Navbar = () => {
     const Container = styled.nav`
     width: 100%;
-    /* padding: 1.3rem; */
+    padding: 1.3rem;
     /* padding-right: 1.3rem; */
     /* max-height: 5vh; */
     background: #25272E;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     border-bottom: 1px solid #373943;
     /* border: 1px solid red; */
@@ -40,7 +41,7 @@ const Navbar = () => {
     gap: 5px;
     font-family: 'Oswald', sans-serif;
     /* width: 11rem; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
     img {
         width: 1.5rem;
