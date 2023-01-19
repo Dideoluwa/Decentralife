@@ -6,14 +6,14 @@ import Marqueee from "./Marquee";
 
 const Navbar = () => {
     const Container = styled.nav`
-    width: 100%;
-    padding: 1.3rem;
+    max-width: 100vw;
+    padding: 1rem;
     /* padding-right: 1.3rem; */
     /* max-height: 5vh; */
     background: #25272E;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
     border-bottom: 1px solid #373943;
     /* border: 1px solid red; */
 
@@ -22,8 +22,18 @@ const Navbar = () => {
     }
 
     button {
-        // margin-left: auto;
+         margin-left: auto;
+         background: #38F2AF;
+         font-weight: 600;
+         padding: 0.5rem 0.5rem;
+         border-radius: 5px;
+         cursor: pointer;
+         border: none;
+         font-family: 'Inter', sans-serif;
+    }
 
+    button:hover {
+        background: #2cc08a;
     }
 
     @media screen and (max-width: 768px) {
@@ -51,10 +61,8 @@ const Navbar = () => {
     return ( 
         <>
             <Container>
-                <Link to="/"><Logo><img src={logo} alt="logo"/>DECENTRALIFE</Logo></Link>
-                <div>
-                    <button>connect</button>
-                </div>
+                <Link to="/"><Logo><img src={logo} alt="logo"/>DECENTRALIFE</Logo></Link> 
+                <button>Connect Wallet</button>  
             </Container>
         </>
      );

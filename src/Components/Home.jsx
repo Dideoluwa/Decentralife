@@ -13,7 +13,7 @@ const Home = () => {
         min-height: 100vh;
         /* border: 1px solid red; */
         position: relative;
-        /* padding-top: 2rem; */
+        padding-bottom: 3rem;
 
         @media screen and (max-width: 768px) {
             
@@ -97,14 +97,14 @@ const Home = () => {
             <StatsContainer>
                 <div className="top">
                     <h1>Top 10 Cryptocurrencies</h1>
-                    <Link to="/cryptos">Show more</Link>
+                    <Link to="/cryptos">Show More</Link>
                 </div>
                 <Cryptos simplified/>
             </StatsContainer>
             <StatsContainer>
                 <div className="top">
                     <h1>Latest Crypto News</h1>
-                    <Link to="/news">Show more</Link>
+                    <Link to="/news">Show More</Link>
                 </div>
                 <News simplified/>
             </StatsContainer>

@@ -21,7 +21,7 @@ const News = ({simplified}) => {
         gap: 1rem;
 
         a {
-            width: 29.7%;
+            width: 29.5%;
             max-width: 30%;
             text-decoration: none;
             color: white;
@@ -44,7 +44,7 @@ const News = ({simplified}) => {
             padding: 1rem;
             background: #373943;
             border-radius: 10px;
-            margin: 1rem;
+            /* margin: 1rem; */
         }
     `
 
@@ -56,9 +56,12 @@ const News = ({simplified}) => {
             /* border: 1px solid red; */
             margin-bottom: .7rem;
             h1 {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 font-family: 'Inter', sans-serif;
                 /* border: 1px solid blue; */
+                height: 100px;
+                overflow: clip;
+                /* overflow: ; */
                 /* color: #38F2AF; */
             }
             img {
