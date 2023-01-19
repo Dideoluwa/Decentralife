@@ -22,9 +22,9 @@ const Sidebar = () => {
 
     return ( 
         <Container>
-            <Link to="/app"><SidebarOptions icon="bi bi-house" text="Home" active/></Link>
+            <Link to="/dashboard"><SidebarOptions icon="bi bi-house" text="Home" active/></Link>
             <Link to="/"><SidebarOptions icon="bi bi-send" text="Send" active/></Link>
-            <Link to="/app/cryptos"><SidebarOptions icon="bi bi-coin" text="Crypto Stats"/></Link>
+            <Link to="/dashboard/cryptos"><SidebarOptions icon="bi bi-coin" text="Crypto Stats"/></Link>
             <Link to="/news"><SidebarOptions icon="bi bi-newspaper" text="News"/></Link>
             <Link to="/"><SidebarOptions icon="bi bi-patch-question" text="FAQ" active/></Link>
         </Container>

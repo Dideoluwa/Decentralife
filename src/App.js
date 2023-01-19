@@ -2,7 +2,7 @@ import Sidebar from "./Components/Sidebar";
 import { BrowserRouter , Route , Routes } from "react-router-dom";
 import {Home , Cryptos, News, CryptoDetails , Landing} from "./Components/CompContainer";
 import Navbar from "./Components/Navbar";
-import Dashboard from "./Components/App";
+import Dashboard from "./Components/Dashboard";
 
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
       <div className="App">  
         <Routes>
               <Route exact path="/" element={<Landing/>}/>  
-              <Route exact path="/app" element={<Dashboard/>}/> 
-              <Route exact path="/app/:news" element={<News/>}/>  
+              <Route exact path="/dashboard" element={<Dashboard/>}/> 
+              {/* <Route exact path="/news" element={<News/>}/>   */}
             </Routes>
       </div> 
       </BrowserRouter>
