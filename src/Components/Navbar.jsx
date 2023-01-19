@@ -24,12 +24,14 @@ const Navbar = () => {
     button {
          margin-left: auto;
          background: #38F2AF;
+         /* color: white; */
          font-weight: 600;
          padding: 0.5rem 0.5rem;
          border-radius: 5px;
          cursor: pointer;
          border: none;
          font-family: 'Inter', sans-serif;
+         /* background: linear-gradient(91.06deg, #38F2AF  2.26%,  #FF1CF7 100%); */
     }
 
     button:hover {

@@ -8,20 +8,20 @@ import { BrowserRouter , Route , Routes } from "react-router-dom";
 const App = () => {
     return ( 
         <div>
-            <div className="App">
+            <div className="Dapp">
             <Navbar/>
-          <div className="main">
+            <div className="main">
             <Sidebar/>
-            <div className="content">
-            <Routes>
-              <Route exact path="/" element={<Home/>}/>  
-              <Route exact path="/app/cryptos" element={<Cryptos/>}/> 
-              <Route exact path="/cryptos/:coinId" element={<CryptoDetails/>}/>   
-              {/* <Route exact path="/exchanges" element={<Exchanges/>}/>   */}
-              <Route exact path="/news" element={<News/>}/>  
-            </Routes>
+                <div className="content">
+                    <Routes>
+                        <Route exact path="/" element={<Home/>}/>  
+                        <Route exact path="/app/cryptos" element={<Cryptos/>}/> 
+                        <Route exact path="/cryptos/:coinId" element={<CryptoDetails/>}/>   
+                        {/* <Route exact path="/exchanges" element={<Exchanges/>}/>   */}
+                        <Route exact path="/:value" element={<News/>}/>  
+                    </Routes>
+                </div>
             </div>
-          </div>
         </div>
         </div>
      );

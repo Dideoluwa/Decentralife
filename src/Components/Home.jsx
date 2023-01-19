@@ -5,6 +5,7 @@ import { useGetCryptoDataQuery } from "../Services/CryptoApi";
 import Cryptos from "./Cryptos";
 import News from "./News";
 import Marqueee from "./Marquee";
+import meta from '../Assets/metaverse.png'
 
 const Home = () => {
 
@@ -20,70 +21,32 @@ const Home = () => {
         }
    `;
 
-   const GlobalStats = styled.div`
-   padding: 1rem;
-
-        h1 {
-            font-size: 1.5rem;
-        }
-
-        ul {
-            list-style: none;
-            margin-top: 1rem;
-            display: flex;
-            background: #323233;
-            border-radius: 10px;
-            padding: 1rem;
-            
-
-            li {
-                width: 25%;
-                padding: 5px;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-
-                h3 {
-                    font-size: 15px;
-                }
-                p {
-                    font-size: 25px;
-                }
-            }}
-
-        @media screen and (max-width: 768px) {
-            li {
-
-                h3 {
-                    font-size: 10px ;
-                }
-
-                p {
-                    font-size: 15px;
-                }
-            }
-        }
-   `;
+    const Hero = styled.div`
+        /* border: 1px solid red; */
+        /* padding: 5rem; */
+        
+        margin: 1rem;
+        margin-top: 5rem;
+    `
 
    const StatsContainer = styled.div`
-   padding: 1rem;
-   padding-top: 5rem;
-        h1 {
-            font-size: 1.5rem;
-            }
+    padding: 1rem;
+    padding-top: 3rem;
+            h1 {
+                font-size: 1.5rem;
+                }
 
-        .top {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
+            .top {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
 
-            a{
-                margin-left: auto;
-                text-decoration: none;
-                color: #38F2AF;
+                a{
+                    margin-left: auto;
+                    text-decoration: none;
+                    color: #38F2AF;
+                }
             }
-        }
    `
 
    const {data , isFetching} = useGetCryptoDataQuery(10);
@@ -94,6 +57,9 @@ const Home = () => {
     return ( 
         <Container>
             <Marqueee/>
+            <Hero>
+                <img src={meta} alt="" />
+            </Hero>
             <StatsContainer>
                 <div className="top">
                     <h1>Top 10 Cryptocurrencies</h1>

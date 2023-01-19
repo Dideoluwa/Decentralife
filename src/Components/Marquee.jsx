@@ -17,7 +17,11 @@ const Section = styled.ul`
 
     h2 {
         width: 12%;
-        color: white;
+        background: linear-gradient(91.06deg, #FF1CF7 2.26%, #38F2AF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        /* color: #FF1CF7; */
     }
 
     li {
